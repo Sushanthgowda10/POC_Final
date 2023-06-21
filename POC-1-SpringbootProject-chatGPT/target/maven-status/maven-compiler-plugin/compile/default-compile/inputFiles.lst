@@ -1,0 +1,15 @@
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\service\OpenAiApiClient.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\controller\POCController.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\model\request\ChatGptRequest.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\helper\GenerationResponse.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\helper\CompletionRequest.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\service\POCService.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\helper\FormInputDTO.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\helper\GenerationRequest.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\config\ChatGptConfig.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\ChatGPTServiceApplication.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\model\response\ChatGptResponse.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\model\request\POCRequest.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\service\POCServiceImpl.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\model\response\Choice.java
+C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT\src\main\java\com\poc\helper\CompletionResponse.java

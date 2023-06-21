@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\sushant.gowda\Desktop\poc junit\POC-1-SpringbootProject-chatGPT"/>
+			<item value="C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPT"/>
+			<item value="C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPTFinal"/>
+			<item value="C:\Users\sushant.gowda\Desktop\POC_Final\POC-1-SpringbootProject-chatGPTallQuetion"/>
+			<item value="C:\Users\sushant.gowda\Desktop\POC_Final\Spring-boot-POCFinal"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

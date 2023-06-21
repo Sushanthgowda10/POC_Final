@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ItemServiceApplicationTests.java&apos; to &apos;POC-1-SpringbootProject-chatGPT/src/test/java/com.app&apos;&#x0D;&#x0A;- Original project: &apos;POC-1-SpringbootProject-chatGPTFinal&apos;&#x0D;&#x0A;- Destination element: &apos;POC-1-SpringbootProject-chatGPT/src/test/java/com.app&apos;&#x0D;&#x0A;- Original element: &apos;com.app.ItemServiceApplicationTests.java&apos;" description="Copy compilation unit" destination="=POC-1-SpringbootProject-chatGPT/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;com.app" element1="/src\/test\/java=/optional=/true=/=/maven.pomderived=/true=/=/test=/true=/&lt;com.app{ItemServiceApplicationTests.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1685602864336" units="1" version="1.0"/>
+</session>

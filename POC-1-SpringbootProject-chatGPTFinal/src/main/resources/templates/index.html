@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>ChatGPT & Spring demo</title>
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+<style>
+body {
+	background-color: #181828;
+	font-family: Verdana;
+}
+
+#drop{
+ width:250px;   
+}
+.topleft {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-size: 18px;
+}
+</style>
+</head>
+<body>
+	<main role="main" class="container">
+		<div class="starter-template">
+		<div class="topleft"><img src="valsss.png"></div>
+ 		
+ 		<h1>Welcome to VALSSS logistics</h1>
+			<h3 style="color: white">
+				Hello there! <br> I'll assist you to manage your packages ?<br />
+			</h3>
+
+
+	<br>	<br>	
+			<form th:action="@{/api/poc/response}" method="post" th:object="${pocRequest}">
+
+
+
+				<label for="packages" style="color: red">Choose your package:</label>
+				<select multiple="multiple" id="packageDropdown" name="packageSelection" style="font-size: 20px;color: tran;" >
+					<option value="100X50X20 cm">100X50X20 cm with 30 kg</option>
+					<option value="150X80X20 cm">150X80X20 cm with 50 kg</option>
+					<option value="200X10X50 cm">200X10X50 cm with 70 kg</option>
+					
+					
+				</select> 
+				
+				<br>
+				<br> <!-- <label for="truckDropdown" style="color: white">Available
+					trucks:</label> 
+				<h4 style="color: white">Truck-1 Truck-2 Truck-3</h4> -->
+				
+				<label for="packages" style="color: red">Choose your trucks measurements:</label>
+				<select multiple="multiple" id="packageDropdown" name="truckSelection" style="font-size: 20px;color: tran;" >
+					<option value="150X50X20 cm">150X50X20 cm with 50 kg</option>
+					<option value="200X80X20 cm">200X80X20 cm with 100 kg</option>
+					<option value="250X10X50 cm">250X10X50 cm with 150 kg</option>
+					
+					
+				</select> 
+				
+
+				<!-- <fieldset>
+					<div class="form-group">
+						<input type="text" name="Message" th:value="${request}" required
+							autofocus placeholder="Please type question" />
+					</div>
+					<div class="button">
+						
+					</div>
+				</fieldset> -->
+			<style>
+input{
+width: 100px;
+height: 50px;
+}
+</style>
+				<input type="submit" value="Send" />
+	
+			</form>
+			<h2 th:if="${response != null}">Here are the responses:</h2>
+			<p th:if="${response != null}" th:text="${response}" />
+		</div>
+	</main>
+
+</body>
+</html>

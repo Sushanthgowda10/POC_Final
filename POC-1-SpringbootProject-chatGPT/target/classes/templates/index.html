@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>ChatGPT & Spring demo</title>
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<style>
+body {
+	background-color: #181828;
+	font-family: Verdana;
+}
+
+#drop {
+	width: 250px;
+}
+
+.topleft {
+	position: absolute;
+	top: 8px;
+	left: 16px;
+	font-size: 18px;
+}
+</style>
+</head>
+<body>
+	<main role="main" class="container">
+		<div class="starter-template">
+			<!-- 		<div class="topleft"><img src="valsss.png"></div>
+ -->
+			<h2 style="color: violet">Welcome to VALSSS logistics</h2>
+			<h5 style="color: white; font-size: 15px">
+				Hello there! <br> I'll assist you to manage your packages :)<br />
+			</h5>
+
+
+
+			<form th:action="@{/api/poc/response}" method="post"
+				th:object="${pocRequest}">
+
+
+
+				<label for="packages" style="color: red; font-size: 20px">Choose
+					your package:</label> <select multiple="multiple" id="packageDropdown"
+					name="packageSelection"
+					style="font-size: 15px; background-color: grey; color: white"
+					required>
+					<option value="package-1 100X50X20 cm with 30 kg">package-1
+						100X50X20 cm with 30 kg</option>
+					<option value="package-2 150X80X20 cm with 50 kg">package-2
+						150X80X20 cm with 50 kg</option>
+					<option value="package-3 200X10X50 cm with 70 kg">package-3
+						200X10X50 cm with 70 kg</option>
+
+
+				</select> <br> <br> <label for="packages"
+					style="color: red; font-size: 20px">Choose your trucks
+					measurements:</label> <select multiple="multiple" id="packageDropdown"
+					name="truckSelection"
+					style="font-size: 15px; background-color: grey; color: white"
+					required>
+					<option value="Truck-1 150X50X20 cm with 50 kg">Truck-1
+						150X50X20 cm with 50 kg</option>
+					<option value="Truck-2 200X80X20 cm with 100 kg">Truck-2
+						200X80X20 cm with 100 kg</option>
+					<option value="Truck-3 250X10X50 cm with 150 kg">Truck-3
+						250X10X50 cm with 150 kg</option>
+
+
+				</select>
+
+
+				<!-- <fieldset>
+					<div class="form-group">
+						<input type="text" name="Message" th:value="${request}" required
+							autofocus placeholder="Please type question" />
+					</div>
+					<div class="button">
+						
+					</div>
+				</fieldset> -->
+				<style>
+input {
+	width: 80px;
+	height: 3 0px;
+}
+</style>
+				<br> <br> <input type="submit" value="Send"
+					style="background-color: grey; font-size: 20px" />
+
+			</form>
+			<h2 th:if="${response != null}" style="font-size: 20px">Here are
+				the responses:</h2>
+			<p th:if="${response != null}" th:text="${response}"
+				style="font-size: 20px" />
+
+		</div>
+	</main>
+
+</body>
+</html>

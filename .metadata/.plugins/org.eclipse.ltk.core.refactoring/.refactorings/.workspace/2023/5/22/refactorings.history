@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;POC-1-SpringbootProject-chatGPT&apos; to &apos;POC-1-SpringbootProject-chatGPT333&apos;" description="Rename resource &apos;POC-1-SpringbootProject-chatGPT&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/POC-1-SpringbootProject-chatGPT" name="POC-1-SpringbootProject-chatGPT333" stamp="1685537902021" updateReferences="true"/>
+</session>

@@ -1,0 +1,62 @@
+package com.app;
+
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.ui.Model;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.poc.model.request.POCRequest;
+
+public class ChatControllerTest {
+
+	@Mock
+	private Model model;
+
+	@InjectMocks
+	private ChatController chatController;
+
+	@Captor
+	private ArgumentCaptor<String> messageCaptor;
+
+	@BeforeEach
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+	}
+
+	@Test
+	public void testChat() {
+		// Arrange
+		String selectedPackage = "Package 1";
+		String truckSelection = "Truck 1, Truck 2";
+		POCRequest dto = new POCRequest();
+
+		// Act
+		ModelAndView modelAndView = chatController.chat(model, dto, selectedPackage, truckSelection);
+
+		// Assert
+		Assertions.assertEquals("index", modelAndView.getViewName());
+
+		// Verify that the appropriate model attributes were added
+		verify(model, times(2)).addAttribute(anyString(), messageCaptor.capture());
+		Assertions.assertEquals(
+				"Can you help me match the following packages with the most suitable trucks:\n" + "\n" + "Package: "
+						+ selectedPackage + "and availabe Trucks are : " + truckSelection
+						+ "capacity, please give a comma to each package and truck",
+				messageCaptor.getAllValues().get(0));
+		Assertions.assertEquals("Response from GPT-3", messageCaptor.getAllValues().get(1));
+
+		// Verify that the appropriate print statements were called
+		verify(System.out, times(3)).println(anyString());
+	}
+
+}

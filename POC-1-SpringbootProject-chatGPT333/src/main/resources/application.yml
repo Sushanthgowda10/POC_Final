@@ -1,0 +1,15 @@
+#port no
+server:
+  port: 8090
+#Application no
+spring:
+  application:
+    name: CHATGPT-SERVICE
+ 
+ #secret key generated from openAI account
+openai_api_key: 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 
+
+ 
+
+
+

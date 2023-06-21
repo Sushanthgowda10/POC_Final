@@ -1,0 +1,110 @@
+package com.poc.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.poc.helper.CompletionRequest;
+import com.poc.model.request.POCRequest;
+import com.poc.model.response.ChatGptResponse;
+import com.poc.service.OpenAiApiClient;
+import com.poc.service.OpenAiApiClient.OpenAiService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("/api/poc")
+@RequiredArgsConstructor
+/**
+ * 
+ * @author vikas.h
+ *
+ */
+public class POCController {
+	
+	private static final String MAIN_PAGE = "index";
+
+	
+	/**
+	 * This API used to display a home page
+	 * @return LVN
+	 */
+	@GetMapping("/")
+	public String index() {
+		return MAIN_PAGE;
+	}
+	
+	/**
+	 * This API is used generate the response and display through HTML page
+	 * 
+	 * @param Model model,
+	 * @param  @ModelAttribute POCRequest DTO
+	 * @return LVN
+	 */
+	@PostMapping("/response")
+	public ModelAndView chat(Model model, @ModelAttribute POCRequest dto, 
+			@RequestParam("packageSelection") String selectedPackage,@RequestParam("truckSelection") String truckSelection) {
+		
+		 // Get the selected package and truck values from the POCRequest object
+	    String selectedTruck = dto.getTruckSelection();
+	    
+	    // Construct the request message using the selected values
+	    String message = "Can you help me match the following packages with the most suitable trucks:\n"
+	            + "\n"
+	            + "Package: " + selectedPackage
+	            + "and availabe Trucks are : "
+	            +truckSelection+
+	            " please give line by line answer";
+	    System.out.println(message);
+		System.out.println("Hi");
+		System.out.println("selected package "+selectedPackage);
+
+		ModelAndView modelAndView = new ModelAndView("index");
+
+		
+		System.out.println();
+		try {
+			model.addAttribute("request1", message);
+			model.addAttribute("response", chatWithGpt3(message));
+		} catch (Exception e) {
+			model.addAttribute("response", "Error in communication with OpenAI ChatGPT API.");
+		}
+		return modelAndView;
+	}
+	
+	    //used for converting Java objects to JSON
+		@Autowired private ObjectMapper jsonMapper;
+		
+		@Autowired private OpenAiApiClient client;
+		
+		private String chatWithGpt3(String message) throws Exception {
+			//encapsulates the parameters or data required to make a completion request to an API or service
+			//And passing the message=question to custom method
+			var completion = CompletionRequest.defaultWith(message);
+			
+			//object into a JSON string representation.
+			var postBodyJson = jsonMapper.writeValueAsString(completion);
+			
+			//making a POST request to the OpenAI API using a client object.
+			var responseBody = client.postToOpenAiApi(postBodyJson, OpenAiService.GPT_3);
+			
+			//Deserializing the response body received from the OpenAI API into a Java object of type ChatGptResponse.
+			var completionResponse = jsonMapper.readValue(responseBody, ChatGptResponse.class);
+			
+			//returning the first answer from the completionResponse object as a String
+			return completionResponse.firstAnswer().orElseThrow();
+		}
+	
+	
+	
+}
+
+
+

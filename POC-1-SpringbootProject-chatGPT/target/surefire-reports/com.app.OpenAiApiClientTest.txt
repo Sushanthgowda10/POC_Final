@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------
+Test set: com.app.OpenAiApiClientTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.647 s <<< FAILURE! - in com.app.OpenAiApiClientTest
+testPostToOpenAiApi  Time elapsed: 1.635 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+expected: <response from OpenAI> but was: <{
+    "error": {
+        "message": "",
+        "type": "invalid_request_error",
+        "param": null,
+        "code": "invalid_api_key"
+    }
+}
+>
+	at com.app.OpenAiApiClientTest.testPostToOpenAiApi(OpenAiApiClientTest.java:54)
+
